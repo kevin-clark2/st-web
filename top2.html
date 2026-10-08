@@ -1,0 +1,84 @@
+<html>
+
+<head><script LANGUAGE="JavaScript">
+
+
+one = null;
+two = null;
+three = null;
+four = null;
+
+var browser = "";
+var bName = navigator.appName;          // get browser name
+var bVersion = parseInt(navigator.appVersion);
+
+
+barImages = new Array(10);                                      // load images to memory.
+for(i = 1; i < 13; i++)
+{
+	barImages[i] = new Image();
+    barImages[i].src = "images/bar"+i+".gif"
+}
+
+function imageOn(loc, img){
+        loc.src=barImages[img].src;           // display rollover
+}
+        
+function imageOff(loc, img){                  // Restore image to normal
+          loc.src=barImages[img].src;
+}
+
+
+</script>
+
+<title>Strucktured | Audio, Video, Home Theater, Security and Automation for home and business.</title>
+</head>
+
+<body link="#FFFFFF" vlink="#FFFFFF" alink="#FF0000">
+
+<form target="_parent" name="submitform" method="POST" action="/cgi-bin/search/search.cgi">
+  <input type="hidden" name="sp-a" value="000412b9-sp00000000"><table border="0"
+  cellpadding="0" cellspacing="0" width="100%" bgcolor="#000000" height>
+    <tr width="100%" valign="bottom">
+      <td width="200" nowrap><font color="#FFFFFF" face="Arial"><small><small></small></small></font><small><font
+			color="" FFFFFF="" face="Arial"><small><a
+			href="index.html" style="text-decoration: none" target="_parent">Welcome to Strucktured</a></small></font></small></td>
+      <td align="right" width="200" VALIGN="middle" NOWRAP><img src="images/home.gif" width="24"
+      height="20" alt="Home"><font color "#FFFFFF" face="Arial"><small><small><a
+      href="index.html" style="text-decoration: none" target="_parent">Home</a></small></small></font>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<img src="images/phone.gif" alt="Contacts" WIDTH="23"
+      HEIGHT="23"><font color "#FFFFFF" face="Arial"><small><small> <a
+      href="company/contacts.html" style="text-decoration: none" target="_top">Contact Us</a>
+      &nbsp;&nbsp;&nbsp; </small></small></font></td>
+      <td align="right" valign="middle" nowrap><input size="15" name="search" maxlength="800"><input
+      type="submit" value="Search"> </td>
+    </tr>
+    <tr valign="top">
+      <td colspan="3" valign="top">
+      <font face="Arial" style="font-weight: bold"><small>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" height>
+        <tr valign="top">
+          <td width="450" bgcolor="#C0C0C0" height="32" valign="top">
+          		<table border="0" width="100%">
+					<tbody>
+						<tr>
+							<td>Technology</td>
+							<td>Products</td>
+							<td>Services</td>
+							<td>Appoach</td>
+							<td>Support</td>
+						</tr>
+					</tbody>
+				</table>
+				</td>
+          <td width="200" bgcolor="#C0C0C0" height="32" valign="middle" NOWRAP align="right"><small><font
+          face="Arial"><small>Media solutions for the home and business &nbsp;&nbsp;</small></font></small></td>
+        </tr>
+      </table>
+      </small></font>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

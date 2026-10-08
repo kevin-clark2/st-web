@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<script LANGUAGE="JavaScript">
+one = null;
+two = null;
+three = null;
+four = null;
+five = null;
+
+var browser = "";
+var bName = navigator.appName;          // get browser name
+var bVersion = parseInt(navigator.appVersion);
+
+
+barImages = new Array(10);                                      // load images to memory.
+for(i = 1; i < 13; i++)
+{
+	barImages[i] = new Image();
+    barImages[i].src = "images/bar"+i+".gif"
+}
+
+function imageOn(loc,img){
+        loc.src=barImages[img].src;           // display rollover
+}
+        
+function imageOff(loc,img){                  // Restore image to normal
+          loc.src=barImages[img].src;
+}
+</script>
+
+<title>Strucktured | Audio, Video, Home Theater, Security and Automation for home and business.</title><base target="middle">
+<meta keywords="chicago suburbs audio video home theater structured wiring alarm automation pre-wire">
+</head>
+<link rel="stylesheet" href="css/default.css">
+<body bgcolor="#000000" link="#FFFFFF" vlink="#FFFFFF" alink="#660099">
+
+<form target="_parent" name="submitform" method="GET" action="php/search/search.php">
+
+  <input type="hidden" name="sp-a" value="000412b9-sp00000000"><table border="0"
+  cellpadding="0" cellspacing="0" width="100%" bgcolor="#000000" height>
+    <tr width="100%" valign="bottom">
+      <td width="26%" nowrap height="37" valign="middle">
+		<font color="#FFFFFF" face="Arial" style="font-size: 9pt">&nbsp;&nbsp;&nbsp;Welcome
+      to Strucktured</font></td>
+      <td align="right" VALIGN="middle" NOWRAP height="37">
+		<p style="padding-right: 10px;">
+			<span style="vertical-align: middle"><img src="images/home.gif" width="24" height="20" alt="Home"><font color "#FFFFFF" face="Arial"><a
+      href="index.html" style="text-decoration: none; color: white;" target="_parent">Home</a></font></span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<img src="images/phone.gif" alt="Contacts" WIDTH="23"
+      HEIGHT="23"><font color "#FFFFFF" face="Arial">
+		<a style="text-decoration: none; color: white;" target="_top" href="company/contactFormIndex.html">Contact Us</a></font></td>
+		<!--<td align="right" valign="middle" nowrap height="37" width="30%">
+         the search info for the PHP script
+        <input size="15" name="query" maxlength="800">
+        <input TYPE="hidden" NAME="stpos" VALUE="0">
+        <input type="Submit" value="Search"> </td>-->
+    </tr>
+    <tr valign="top">
+		<td colspan="3" valign="top" height="22">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" height
+			bgcolor="#000000">
+			<tr valign="top">
+				<td width="580" bgcolor="#C0C0C0" height="32" valign="middle"><a
+					href="company/index.html"
+					onMouseOver="imageOn(one,2); return true;"
+					onMouseOut="imageOff(one,1); return true;" target="_parent"><img
+					src="images/bar1.gif" alt="About Strucktured" name="one" border="0"
+					WIDTH="75" HEIGHT="30"></a><a href="products/index.html"
+					onMouseOver="imageOn(two,4); return true;"
+					onMouseOut="imageOff(two,3); return true;" target="_parent"><img
+					src="images/bar3.gif" alt="Products" name="two" border="0"
+					WIDTH="75" HEIGHT="30"></a><a href="index.html"
+					onMouseOver="imageOn(three,6); return true;"
+					onMouseOut="imageOff(three,5); return true;" target="_parent"><img
+					src="images/bar5.gif" alt="Services" name="three" border="0"
+					WIDTH="75" HEIGHT="30"></a><a href="technology/index.html"
+					onMouseOver="imageOn(four,8); return true;"
+					onMouseOut="imageOff(four,7); return true;" target="_parent"><img
+					src="images/bar7.gif" alt="Technology" name="four" border="0"
+					WIDTH="75" HEIGHT="30"></a><a href="approachIndex.html"
+					onMouseOver="imageOn(five,10); return true;"
+					onMouseOut="imageOff(five,9); return true;" target="_parent"><img
+					src="images/bar9.gif" alt="Approach" name="five" border="0"
+					WIDTH="75" HEIGHT="30"></a><a href="support/index.html"
+					onMouseOver="imageOn(six,12); return true;"
+					onMouseOut="imageOff(six,11); return true;" target="_parent"><img
+					src="images/bar11.gif" alt="Support" name="six" border="0"
+					WIDTH="75" HEIGHT="30"></a></td>
+				<td width="294" bgcolor="#C0C0C0" height="32" valign="middle" NOWRAP>
+				<font
+					face="Arial" style="font-size: 9pt">Media solutions for the home and
+				business</font></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+  </table>
+</form>
+</body>
+</html>

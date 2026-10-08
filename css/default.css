@@ -1,0 +1,155 @@
+.MENUITEMS {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: FFFFFF; text-decoration: none}
+.MENU2 {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: FFFFFF; text-decoration: none}
+.MENU3 {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: FFFFFF; border-color: FFFFFF 6666cc 6666cc; border-style: solid; border-top-width: thin}
+.SUBMENUITEMS { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; color: FFFFFF; text-decoration: none }
+.txtBoxSmall {
+    font-family: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 11px;}
+.boxLinks A {
+    color: #ffffff;}
+BODY
+{
+    margin-left:    0;
+    margin-top:     0;
+}
+
+P
+{
+    font-family:        Arial;
+    font-size:          12px;
+}
+
+LI
+{
+    font-family:        Arial;
+    font-size:          12px;
+}
+
+A {
+    color:                  #6666cc; 
+    font-family: Arial;
+    text-decoration:        underline;
+}
+
+COLORLABEL {
+    color:             	#6666cc; 
+    font-family:	Arial;
+    font-weight: bolder; 
+}
+
+.links {
+    color:#6666cc;
+    font-family: Arial;
+}
+
+DIV
+{
+    font-family:        Arial;
+    font-size:          12px;
+}
+
+TD
+{
+    font-family:        Arial;
+    font-size:          12px;
+}
+
+.BACKGROUND
+{
+    background-color:   white;
+}
+.PREFS
+{
+    background-color:   #EEEEEE;
+    padding:            10;
+    text-align:         left;
+    padding:            0 0 10 0;                                                                 
+}
+
+.PREFS .HEADING
+{
+    color:              #800000;
+    font-size:          16px;
+    font-weight:         bold;
+    text-align:         center;
+    background-color:   #CCCCCC;
+    width:              500;
+}
+
+.PREFS .SUBHEADING
+{
+    color:              #000000;
+    font-size:          12px;
+    font-weight:         bold;
+    background-color:   #DDDDDD;
+    text-align:         center;
+    margin-left:        20;
+    margin-right:       20;
+    width:              430;
+}
+
+.ERROR
+{
+    font-family:        Arial;
+    font-size:          13px;
+    color:              red;
+    font-weight:        bold;
+}
+
+
+.ERROR_DESC
+{
+    font-family:        Arial;
+    font-size:          12px;
+    font-weight:        normal;
+}
+
+DIV.ERROR_MESSAGE {
+    padding:            1em;
+    border-style:       solid;
+    border-width:       2px;
+    border-color:       black;
+    background-color:   white;
+    color:              black;
+    margin:             1em;
+}
+
+.LABEL
+{
+    font-family:        Arial;
+    font-size:          11px;
+    font-weight:        normal;
+}
+
+.LABELANDBACKGROUND
+{
+    background-color:   white;
+    font-family:        Arial;
+    font-size:          11px;
+    font-weight:        normal;
+}
+
+.LABEL EM
+{
+    font-family:        Arial;
+    font-size:          11px;
+    color:              red;
+}
+
+
+FORM 
+{
+    margin-bottom:      0;
+}
+
+.FORMBACKGROUND
+{
+    background-color:   #eeeeee;
+}
+
+.FORMBACKGROUNDLABEL
+{
+    background-color:   #eeeeee;
+    font-family:        Arial;
+    font-size:          11px;
+}

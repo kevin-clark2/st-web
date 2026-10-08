@@ -1,0 +1,204 @@
+<?php session_start() ?>
+<html>
+<head>
+<title>Strucktured | Audio, Video, Home Theater, Security and Automation for home and business.</title>
+<script LANGUAGE="JavaScript">
+
+function focuson() {
+	document.feedback.first_name.focus();
+}
+
+function trim(argvalue) {
+  var tmpstr = ltrim(argvalue);
+  return rtrim(tmpstr);
+}
+
+function rtrim(argvalue) {
+  while (1) {
+    if (argvalue.substring(argvalue.length - 1, argvalue.length) != " ")
+      break;
+    argvalue = argvalue.substring(0, argvalue.length - 1);
+  }
+  return argvalue;
+}
+
+function ltrim(argvalue) {
+  while (1) {
+    if (argvalue.substring(0, 1) != " ")
+      break;
+    argvalue = argvalue.substring(1, argvalue.length);
+  }
+  return argvalue;
+}
+
+function validate()
+
+{
+
+    var errorMessage = "Following fields are required:\n";
+    var errorFlag = "";
+    
+    if(document.feedback.first_name.value == ""){
+        errorMessage += " * First name\n";
+        errorFlag = "true";
+    }
+
+    if(document.feedback.last_name.value == ""){
+        errorMessage += " * Last name\n";
+        errorFlag = "true";
+    }
+    
+    if(document.feedback.email.value == ""){
+        errorMessage += " * E-mail Address\n";
+        errorFlag = "true";
+    }
+    if(document.feedback.phone.value == ""){
+        errorMessage += " * Telephone Number\n";
+        errorFlag = "true";
+    }
+    if(document.feedback.email.value.indexOf("@") == -1 && trim(document.feedback.email.value) != ""){
+        errorMessage += " * Invalid email address\n";
+        errorFlag = "true";
+    }
+    if(document.feedback.prospect_type.value == "--Required--") {
+    	errorMessage += " * Enter builder, home owner or vendor\n";
+    	errorFlag = "true";
+    }
+    if (errorFlag == "true")
+    {
+        alert(errorMessage);
+        return false;
+    }else{
+        document.feedback.submit();
+    }
+}
+
+</script>
+
+
+</head>
+
+<body topmargin="0" leftmargin="0" link="#660099" vlink="#660099" bgcolor="#FFFFFF" alink="#660099" onLoad="return focuson();">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="top">
+    <td width="200" valign="top"><br>
+    <img border="0" src="../images/strucktured_logo2.gif" width="204" height="156"></td>
+    <td width="800"><br><table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+		<font face="Arial" color="#660099" style="font-size: 12pt; font-weight:700">Contact Form</font></td>
+        <td><p align="left"><br></td>
+      </tr>
+    </table>
+      <p><font
+    face="Arial"><small>Pease complete the form below and we will contact you as 
+		soon as possible!<br>
+		<br>
+		If you wish to call the phone number is 949-371-5449 and the contact 
+		email is <script language="JavaScript">
+var name = "sales";
+var domain = "strucktured.com";
+document.write('<a href=\"mailto:' + name + '@' + domain + '\">');
+document.write(name + '@' + domain + '</a>');
+</script></small></font></p>
+
+
+    <form name="feedback" action="/php/mailer.php" method="post">
+    <input type="hidden" name="subject" value="Strucktured Sales Lead!" />
+	<input type="hidden" name="redirect" value="/company/thankyou.html" />
+      <p><font face="Arial"><strong><small>Tell us how to get in touch with you:</small></strong></font><dl>
+        <table border="0" width="100%">
+          <tr>
+            <td width="26%"><small><font face="Arial">First Name*:</font></small></td>
+            <td width="73%"><small><font face="Arial">
+			<input type="text" size="35" maxlength="256"
+            name="first_name"></font></small></td>
+          </tr>
+          <tr>
+            <td width="26%"><small><font face="Arial">Last Name*:</font></small></td>
+            <td width="73%"><small><font face="Arial">
+			<input type="text" size="35" maxlength="256"
+            name="last_name"></font></small></td>
+          </tr>
+          <tr>
+            <td width="26%"><small><font face="Arial">E-mail*:</font></small></td>
+            <td width="73%"><small><font face="Arial">
+			<input type="text" size="35" maxlength="256"
+            name="email"></font></small></td>
+          </tr>
+          <tr>
+            <td width="26%"><small><font face="Arial">Tel*:</font></small></td>
+            <td width="73%"><small><font face="Arial">
+			<input type="text" size="35" maxlength="256"
+            name="phone"></font></small></td>
+          </tr>
+          <tr>
+            <td width="26%"><small><font face="Arial">Fax:</font></small></td>
+            <td width="73%"><small><font face="Arial">
+			<input type="text" size="35" maxlength="256"
+            name="fax"></font></small></td>
+          </tr>
+          <tr>
+            <td width="26%"></td>
+            <td width="73%"></td>
+          </tr>
+          <tr>
+            <td width="26%"><font face="Arial" style="font-size: smaller">Brief 
+			description of needs</font></td>
+            <td width="73%"><textarea rows="10" name="interest" cols="40"></textarea></td>
+          </tr>
+          <tr>
+            <td width="26%"><font face="Arial" style="font-size: smaller">
+			Interested in (check all that apply)</font></td>
+            <td width="73%"><font face="Arial"><input type="checkbox" name="wholeaudio" value="ON"><font size="2">Whole 
+			house audio&nbsp; </font> <input type="checkbox" name="wholevideo" value="ON"><font size="2"> Whole 
+			house Arial </font> <input type="checkbox" name="hometheater" value="ON"><font size="2"> Home 
+			theater<br>
+			</font>
+			<input type="checkbox" name="digital" value="ON"><font size="2">Centralize digital 
+			assets </font> <input type="checkbox" name="networking" value="ON"><font size="2"> Networking
+			</font>
+			<input type="checkbox" name="security" value="ON"><font size="2">Security and Alarms<br>
+			</font>
+			<input type="checkbox" name="automation" value="ON"><font size="2">Automated home control
+			</font>
+			<input type="checkbox" name="wiring" value="ON"><font size="2">Wiring</font></font></td>
+          </tr>
+          <tr>
+            <td width="26%"><small><font face="Arial">I am</font></small></td>
+            <td width="73%"><font face="Arial"><select name="prospect_type" size="1">
+              <option selected value="--Required--">--Required--</option>
+              <option value="builder">a builder</option>
+              <option value="homeowner">a home owner</option>
+              <option value="vendor">a vendor</option>
+            </select></font></td>
+          </tr>
+          <tr>
+            <td width="26%">&nbsp;</td>
+            <td width="73%"><font face="Arial">
+		<input type="checkbox" name="contact0" value="ContactRequested"><small>
+          Please contact me as soon as possible</small></font></td>
+          </tr>
+           <tr>
+            <td width="26%"><font face="Arial" size="2">Form validation</font></td>
+            <td width="73%"><img src="../php/captcha/php_captcha.php">&nbsp; <small><font face="Arial">
+			<input type="text" size="15" maxlength="256"
+            name="number" id="number"></font></small></td>
+          </tr>
+          </table>
+      </dl>
+      <dl>
+        <dd>&nbsp;</dd>
+      </dl>
+      <p><font face="Arial">
+		<input type="button" value="Submit" onclick="validate();"
+      name="Submit"> 
+		<input type="reset" value="Clear Form" name="Clear Form0"></font></p>
+    </form>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

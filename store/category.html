@@ -1,0 +1,297 @@
+<html>
+
+<head>
+<title>Objectsoft, Inc</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<script language="JavaScript"><!--
+var shop=top.frames['shop'];
+
+if (shop.productList == void(0)) parent.location.replace("index.html");
+
+function show(category){
+
+    shop.showCategory = category;
+    this.location='category.html';
+ 
+}
+
+// To view the shopping list
+function view(){
+    shop.cleared = false;
+    this.location = 'view.html';
+}
+
+// To add a product to the basket
+function buy(prodNum){
+    shop.product[prodNum].quantity++;
+    view();
+}
+
+// --></script>
+<div align="right">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td align="right" colspan="3" bgcolor="#808080"><font face="Arial"><img src="images/spacerw.gif" width="1" height="1"></font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#C0C0C0"><font face="Arial"><img src="images/spacerw.gif" width="1" height="1"></font></td>
+                    <td bgcolor="#C0C0C0"><font face="Arial"><img src="images/spacerg.gif" width="1" height="1"></font></td>
+                    <td align="right" bgcolor="#C0C0C0"><font face="Arial"><img src="images/spacerb.gif" width="1" height="1"></font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#808080"><font face="Arial"><img src="images/spacerw.gif" width="1" height="1"><img src="images/spacerg.gif" width="1" height="20"></font></td>
+                    <td align="center" bgcolor="#808080"><font color="#FFFFFF" size="2" face="Arial"><strong>Products</strong></font></td>
+                    <td align="right" bgcolor="#808080"><a href="javascript:view()" onclick="shop.cleared = false;"><font size="1" face="Arial"><img src="images/view.gif" border="0" width="90" height="20"></font></a><font face="Arial"><img src="images/spacerb.gif" width="1" height="20"></font></td>
+                </tr>
+                <tr>
+                    <td colspan="3" bgcolor="#000000"><font face="Arial"><img src="images/spacerw.gif" width="1" height="1"></font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#808080" bordercolor="#808080"><font face="Arial"><img src="images/spacerg.gif" width="1" height="1"></font></td>
+                    <td align="center" bgcolor="#808080"><font face="Arial"><img src="images/spacerg.gif" width="1" height="1"></font></td>
+                    <td align="right" bgcolor="#808080"><font face="Arial"><img src="images/spacerg.gif" width="1" height="1"></font></td>
+                </tr>
+            </table>
+</div>
+<script language="JavaScript"><!--
+// START OFF OUTER TABLE
+
+if (shop.productList != void(0)) {
+document.write('<form name="showProducts"><table border="2" width="100%">' +
+               '<tr>');
+
+
+
+    if (shop.showCategory != ' '){
+
+    
+
+// GO THROUGH EACH PRODUCT LOOKING FOR PRODUCTS WITH THE PROPER CATEGORY
+
+        for (var i=0;i<shop.productList.length;i++){
+            if (shop.productList[i].cat == shop.showCategory){
+
+
+// START AUTO GENERATE
+
+// CELL 1 - BUY ME BUTTON <<------ START CELL !
+
+                document.writeln('<table border="0" width="100%">' +
+					   '<td align="left" valign="top" width="100">' + 
+                                 '<img src="' + escape(shop.productList[i].image) + '"></td>' +
+					   '<td valign="top" align="left" width="' + shop.offset + '">' +
+                                 '<a href="javascript:choose(\'' + shop.productList[i].prodNum + '\',');
+
+// CODE TO CHECK FOR EXTRA INFO
+
+                if (shop.productList[i].moreInfo != ''){
+                    var plus='no';
+                    for(var q=0; q<shop.extraArray.length; q++){
+                        if (shop.productList[i].moreInfo.indexOf(shop.extraArray[q]) > -1){
+                           if (plus != 'no'){
+                                document.writeln('+' + '');
+                            }
+                            document.writeln('\'' + shop.extraArray[q] + ' (\'' + 
+                                             '+ document.showProducts.' + shop.extraArray[q] +
+                                             '_' + shop.productList[i].prodNum +
+                                             '.options [document.showProducts.' + 
+                                             shop.extraArray[q] + '_' + 
+                                             shop.productList[i].prodNum +
+                                             '.selectedIndex].value + \')\'');
+                            plus='yep';
+                        }
+                    }
+                    document.writeln(' + \'~\')">');
+                }
+                else {
+                    document.writeln('\'\')">');
+                }                 
+                document.writeln('<img src="images/buy.gif" border="0"></a><p align="left">' +
+
+			'<font face="Arial" size="-1"><B>' + 
+                                 shop.currency + shop.productList[i].pri + '</B></font></p>' +
+// CELL 2 - DESCRIPTION
+
+                                 '</td><td valign="top" align="left">' +
+					   '<font face="Arial" size="-1">' +
+                                 shop.productList[i].desc + '</font>');
+
+// LINK TO MORE INFO IF THERE IS A PAGE
+
+                if (shop.productList[i].page != ''){
+                    document.writeln(' - <font size="1" face="Arial"><a href="');
+                    if (shop.productList[i].page == 'x'){
+                        document.writeln(shop.productList[i].prodNum + '.html');
+                    }
+                    else {
+                        document.writeln(shop.productList[i].page);
+                    }
+                    document.writeln('">More Info</a></font>');
+                 }
+    
+
+// CHECK IF THERE ARE ANY EXTRA INFO ARRAYS
+
+                if (shop.productList[i].moreInfo != ''){
+                    document.writeln('<br>');
+                    info=shop.productList[i].theInfo;
+                    for(var q=0; q<shop.extraArray.length; q++){
+                        if (shop.productList[i].moreInfo.indexOf(shop.extraArray[q]) > -1){
+                            writeBox(shop.extraArray[q],i);
+                        }
+                    }
+                }
+
+// <--END OF LOOKING FOR ADDITIONAL STUFF
+
+// FINISH OFF THE TABLE ROW
+
+                document.writeln('</td></tr></table><p>');
+
+
+// END AUTO GENERATE
+    
+            }
+        }
+    }
+
+// <--END OF LOOP THROUGH PRODUCTS 
+
+
+
+
+
+// FINISH OFF OUTER TABLE
+document.write('</td></tr></table>');
+
+}
+
+// WRITING THE SELECT BOXES FOR THE EXTRA INFO
+
+function writeBox(what,i){
+
+    var whatone='';
+
+    for (var w=0; w<what.length; w++){
+
+
+
+        if (what.charAt(w)=='_'){
+
+            whatone += ' ';
+
+        }
+
+        else {
+
+            whatone += what.charAt(w);
+
+        }
+
+    }
+
+    document.writeln(whatone + ': <select name="' + what + '_' + shop.productList[i].prodNum +
+
+                     '" size="1">');
+
+                     for (var q=0; q<info [what].length; q++){
+
+                         document.writeln('<option value="' + info [what][q] +
+
+                                          '">' + info [what][q] + '</option>');
+
+                     }
+
+                     document.writeln('</select>');
+
+}
+
+
+
+// IF THERE IS ANY MORE EXTRA INFO (COLORS, SIZES, ETC...)
+
+function choose(which,what){
+
+    var item = shop.product[which].selectedInfo;
+
+    var itemOf = shop.product[which].selectedInfo.indexOf(what) + what.length;
+
+    var addItem = '';
+
+    var end = '';
+
+    if (what != ''){
+
+        if (shop.product[which].selectedInfo.indexOf(what) != -1){
+
+            var quantity = '';
+
+            var quant = '';
+
+            for (var q=itemOf; q<item.length; q++){
+
+                if (item.charAt(q) != '<' && end == ''){
+
+                    quantity += item.charAt(q);
+
+                    if (item.charAt(q+1) == '<'){
+
+                        quant = parseFloat(quantity)+1;
+
+                    }
+
+                }
+
+                else {
+
+                    end += item.charAt(q);
+
+                }
+
+            }
+
+            for (var r=0; r<item.length; r++){
+
+                if (r < itemOf){
+
+                    addItem += item.charAt(r);
+
+                }
+
+                else {
+
+                    addItem += quant;
+
+                    shop.product[which].selectedInfo = addItem + end;
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        else {
+
+            shop.product[which].selectedInfo += what + '1<';
+
+        }
+
+    }
+
+    buy(which);
+
+}
+
+
+// --></script>
+
+</body>
+</html>

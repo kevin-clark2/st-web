@@ -1,0 +1,257 @@
+<html>
+
+<head>
+<title>Objectsoft, Inc</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#800080">
+
+<p align="center"><font face="Arial, Helvetica"><strong>This is the page that loads
+Impulse.</strong></font></p>
+
+<p align="center"><script language="JavaScript"><!--
+// Delete the "//" on the line that says 
+// window.onerror=null; to be prevent an error box
+// from showing up if a user makes a mistake.
+// Leave it in while you're working to see what mistakes
+// you are making in the process.
+
+//window.onerror=null;
+
+////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//                                                                 \\
+
+//***  A brief explination of each function preceeds each one.  ***\\
+
+//                                                                 \\
+
+////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+// Edit the following line replacing "demo" with your username
+
+username = "impaler";                    // sets username
+itemQuantity = 1;                // default number of items to add
+goBack = '';                     // where to go back to from viewing page
+currency = 'US$';                // currency
+shipping = new Array(0,0);       // [0]shipping charge - [1]shipping option on view page
+bodyoffset = '20%';              // distance of products from left edge
+formattedoffset = '';
+offset = '';
+defaultProduct = 'category.html'; // product frontpage
+howToShip = 'flateRate';          // defines what determines shipping charges
+searched = 0;                    // to show prods on search page
+cleared = false;                 // bug fix
+initialized = false;
+tableBorder = 0;                 // defines visible border round products
+
+// Info to search for a product by searching or categorical
+// if you are using the database to html program that automatically
+// generates this page.  If you are not using this program, the code
+// that concerns you begins AFTER the //<!-- End Search and Categories -->
+
+showCategory = ' ';
+searchTerms = '';
+
+//////////////// PRODUCTS AND SUCH /////////////////////
+// EXTRA FIELDS TO BE REFERENCED ON THE CATEGORY PAGE
+
+extraArray = new Array('colors','sizes','super_size');
+allExtraArrays = new Array();
+allExtraArrays[0]=new Array('red','green','blue');
+allExtraArrays[1]=new Array('small','medium','large','x-large');
+allExtraArrays[2]=new Array('yes','no');
+
+// CATEGORIES
+category = new Array();
+category[0] = new categories('Products','Products','Products','Products');
+
+// ORDER CATEGORIES ALPHA/NUMERICALLY
+characters = ' ~`!@#$%^&*()_-+={[}]|\\:;"\'<,>.?/0123456789abcdefghijklmnopqrstuvwxyz';
+shorterLength = 0;
+
+// SALES DESCRIPTIONS
+
+salesblurb = new Array();
+
+//THE PRODUCTS
+productList = new Array();
+shoppingList = new Array();
+product = new Array();
+productList[0] = product['001'] = new products('Products','BrewMaster','2.0','<B>BrewMaster</B> is the most powerful Java add-on to your standard Java IDE.  We spent a great amount of time making a real development tool, not a toy. So, check it out and give us your feedback.','001','49.99','0','','','','','','','images/brew.gif','http://www.objsoft.com/products/brewmaster/install/install.htm','bmlite','quark');
+productList[1] = product['002'] = new products('Products','CommentMaster','1.1','<B>CommentMaster</B> is a great tool to help you complete documentation on your Java code, increase reusability and enhance quality!  It will parse through .Java files and fix comments to match templates you can define.','002','49.99','0','','','','','','','images/cm.gif','http://www.objsoft.com/products/commentmaster/install/install.htm','commentmaster','commenter');
+productList[2] = product['003'] = new products('Products','DiffMaster','1.0','<B>DiffMaster</B> will make file based code comparison a chore of the past. DiffMaster breaks down Java classes into each method and makes a concise comparison for you automatically.','003','49.99','0','','','','','','','images/diff.gif','http://www.objsoft.com/products/diffmaster/install/install.htm','diffmaster','compare');
+productList[3] = product['004'] = new products('Products','DebugMaster','1.0','<B>DebugMaster</B> is the most powerful Java debugger around. It can debug multiple VMs, remotely debug and has a great looking user interface. It is 100% Java!  We spent a great amount of time making a real debugger, not a toy. So, check it out and give us your feedback.','004','49.99','0','','','','','','','images/dm.gif','http://www.objsoft.com/products/debugmaster/standard/install/install.htm','debug','debugee');
+
+//////////////// SHIPPING \\\\\\\\\\\\\\\\\\
+// SHIPPING TYPES
+
+xFedEx = new Array();
+xFedEx.max = '10.00';
+xUPS = new Array();
+xUPS.max = '10.00';
+
+shippingInfo = new Array();
+
+shippingInfo[0] = new shippingInformation('FedEx','xFedEx');
+shippingInfo[1] = new shippingInformation('UPS','xUPS');
+
+initialize();
+
+//Initialize the store
+function initialize() {
+
+	if (initialized) return;
+	initialized = true;
+
+	// Let's just adjust the left-edge offset in case someone
+	// decides to make it a bit too small for the buy me buttons
+
+	if (bodyoffset.indexOf('%') > -1){
+    		for (var z=0; z<bodyoffset.length; z++){
+        		if (bodyoffset.charAt(z) != '%'){
+            		formattedoffset += bodyoffset.charAt(z);
+			}
+    		}
+	}
+	else { formattedoffset = parseInt(bodyoffset); }
+	if (formattedoffset < 10){
+    		offset = '10%';
+	}
+	else {
+    		offset = bodyoffset;
+	}
+
+
+	for (var r=0; r<category.length; r++){
+    		document.writeln(category[r].name);
+    		if (r != category.length-1){
+        		document.writeln(' | ');
+    		}
+	}
+
+	for (var j=1; j<category.length; j++){    
+    		for (var c=0; c<category.length; c++){    
+        		catCat1 = category[c].cat;
+        		catName1 = category[c].name;
+        		catCat2 = category[j].cat;
+        		catName2 = category[j].name;
+        		catName1.length < catName2.length ? shorterLength = catName1.length : shorterLength = catName2.length;
+        		for (var p=0; p<shorterLength; p++){
+            		if (catName1.charAt(p).toLowerCase() != catName2.charAt(p).toLowerCase()){
+                			if (characters.indexOf(catName1.charAt(p).toLowerCase())<characters.indexOf(catName2.charAt(p).toLowerCase())){
+                    			category[c].cat = catCat1; category[c].name = catName1;
+                    			category[j].cat = catCat2; category[j].name = catName2;
+                    			break;
+                			}
+                			else {
+                    			category[c].cat = catCat2; category[c].name = catName2; 
+                    			category[j].cat = catCat1; category[j].name = catName1;
+                   			break;
+                			}
+            		}
+            		else if (catName1.charAt(p).toLowerCase() == catName2.charAt(p).toLowerCase() && p == shorterLength-1){
+                			if (catName1.length == shorterLength){
+                    			category[c].cat = catCat1; category[c].name = catName1;
+                    			category[j].cat = catCat2; category[j].name = catName2;
+                			}
+                			else {
+                    			category[c].cat = catCat2; category[c].name = catName2;
+                    			category[j].cat = catCat1; category[j].name = catName1;
+                			}
+                			break;
+            		}
+        		}
+    		}
+	}
+}
+
+function categories(cat,name){
+    this.cat=cat;
+    this.name=name;
+}
+
+// (categories, descriptions, product numbers, price, weight, featured item, distributors/drop ship vendors, additional fields (colors or sizes...), selected additional fields,info page,sales blurb,image)  
+function products(cat,productName,versionNum,desc,prodNum,pri,weight,featuredItem,vendor,moreInfo,selectedInfo,page,salespitch,image,url,usrname,passwd){
+
+    this.cat=cat;
+    this.productName=productName;
+    this.versionNum=versionNum;
+    this.desc=desc;
+    this.prodNum=prodNum;
+    this.pri=pri;
+    this.weight=weight;
+    this.featuredItem=featuredItem;
+    this.vendor=vendor;
+    this.store=username;
+    this.quantity=0;
+    this.moreInfo=moreInfo;
+    this.theInfo=new theInfo(moreInfo);
+    this.selectedInfo=selectedInfo;
+    this.page=page;
+    this.url = url;
+    this.usrname = usrname;
+    this.passwd = passwd;
+    salespitch != '' ? this.salesblurb = salesblurb[prodNum] : this.salesblurb = '';
+    image != '' ? this.image = image : this.image = 'images/nada.gif';
+}
+
+
+
+// MORE FIELD INFORMATION - IF STATEMENT FOR EACH SET OF ADD-ONS
+function theInfo(what){
+    for(var q=0; q<extraArray.length; q++){
+        if (what.indexOf(extraArray[q]) > -1){
+            this [extraArray[q]]=allExtraArrays[q];
+        }
+    }
+}
+
+function shippingTypes(limit,value){
+    this.limit = limit;
+    this.value = value;
+}
+
+
+function shippingInformation(text,id){
+    this.value = shipValue(id);
+    this.text = text;
+    this.id = id;
+    this.max = eval(id + '.max');
+}
+
+
+
+function doShip(which){
+    for(var p=0; p<shippingInfo.length; p++){
+        shippingInfo[p].value = shipValue(shippingInfo[p].id);
+        shipping[0] = shippingInfo[which].value;
+    }
+}
+
+function shipValue(id){
+    var q = 0;
+    var shippingCharge = eval(id + '.max');
+    for(var i=0; i<productList.length; i++){
+        if (howToShip == 'quantity'){
+            productList[i].quantity > 0 ? q += productList[i].quantity : ''; }
+        else if (howToShip == 'weight'){
+            productList[i].quantity > 0 ? q += (productList[i].weight*productList[i].quantity) : ''; }
+        else {
+            productList[i].quantity > 0 ? q += productList[i].quantity * productList[i].pri : ''; }
+    }
+    for(var p=0; p<eval(id + '.length'); p++){
+        if (q <= eval(id + '[p].limit')){
+            shippingCharge = eval(id + '[p].value');
+            break;
+        }
+    }
+    return shippingCharge;
+}
+
+        
+
+// --></script></p>
+</body>
+</html>
